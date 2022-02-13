@@ -1,1 +1,1 @@
-# JDE
+# JS Desktop Environment
