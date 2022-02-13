@@ -1,0 +1,65 @@
+{
+    "folder": {
+        "icon": "folder"
+    },
+
+    "html": {
+        "icon": "html",
+        "mimeType": "text/html",
+        "contentType": "text/plain"
+    },
+
+    "css": {
+        "icon": "css",
+        "mimeType": "text/css",
+        "contentType": "text/plain"
+    },
+
+    "js": {
+        "icon": "code",
+        "mimeType": "application/javascript",
+        "contentType": "text/plain"
+    },
+
+    "json": {
+        "icon": "description",
+        "mimeType": "application/json",
+        "contentType": "text/plain"
+    },
+
+    "txt": {
+        "icon": "description",
+        "mimeType": "text/plain",
+        "contentType": "text/plain"
+    },
+
+    "jpg": {
+        "icon": "image",
+        "mimeType": "image/jpeg",
+        "contentType": "arraybuffer"
+    },
+
+    "png": {
+        "icon": "image",
+        "mimeType": "image/png",
+        "contentType": "arraybuffer"
+    },
+
+    "gif": {
+        "icon": "image",
+        "mimeType": "image/gif",
+        "contentType": "arraybuffer"
+    },
+
+    "svg": {
+        "icon": "image",
+        "mimeType": "image/svg+xml",
+        "contentType": "arraybuffer"
+    },
+
+    "zip": {
+        "icon": "folder_zip",
+        "mimeType": "application/zip",
+        "contentType": "arraybuffer"
+    }
+}

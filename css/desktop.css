@@ -1,0 +1,103 @@
+body {
+    margin: 0;
+}
+
+.wrapper {
+    background-size: cover;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    min-height: 100vh;
+    max-height: 100vh;
+}
+
+.wrapper > .taskbar {
+    background-color: rgba(0 0 0 / 95%);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 32px;
+}
+
+.wrapper .desktop-holder {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.wrapper .desktop,
+.content > .folder-view {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, calc(var(--size) + 20px));
+    font-size: calc(var(--size));
+    column-gap: 10px;
+    row-gap: 15px;
+    margin: 0;
+    padding: 15px;
+    list-style: none;
+}
+
+.wrapper .desktop > .item,
+.content > .folder-view > .item {
+    border: 1px solid transparent;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.wrapper .desktop > .item.selected,
+.content > .folder-view > .item.selected {
+    background-color: rgb(0 161 255 / 25%);
+    border-color: rgb(21, 137, 203);
+}
+
+.wrapper .desktop > .item .icon,
+.content > .folder-view > .item .icon {
+    cursor: default;
+    flex: 1;
+    font-size: inherit;
+}
+
+.wrapper .desktop > .item .icon.static,
+.content > .folder-view > .item .icon.static {
+    padding-top: 8px;
+}
+
+.wrapper .desktop > .item .icon.static img,
+.content > .folder-view > .item .icon.static img {
+    display: block;
+    width: 1em;
+}
+
+.wrapper .desktop > .item .name,
+.content > .folder-view > .item .name {
+    cursor: default;
+    font: .28em 'Saira', sans-serif;
+    text-shadow: 1px 1px 1px #000;
+}
+
+.no-select {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently */
+}
+
+.word-wrap {
+    white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+    white-space: -webkit-pre-wrap;          /* Chrome & Safari */
+    white-space: -pre-wrap;                 /* Opera 4-6 */
+    white-space: -o-pre-wrap;               /* Opera 7 */
+    white-space: pre-wrap;                  /* CSS3 */
+    word-wrap: break-word;                  /* Internet Explorer 5.5+ */
+    word-break: break-all;
+    white-space: normal;
+}

@@ -1,0 +1,54 @@
+{
+    "jshell": {
+        "title": "jShell",
+        "type": "application",
+        "types": [ "folder" ],
+        "command": "jshell %1"
+    },
+
+    "jterm": {
+        "title": "jTerminal",
+        "type": "application",
+        "icon": "terminal",
+        "url": "../../apps/jterm.js",
+        "command": "jterm"
+    },
+
+    "jcalc": {
+        "title": "jCalc",
+        "type": "application",
+        "icon": "calculate",
+        "url": "../../apps/jcalc.js",
+        "command": "jcalc"
+    },
+
+    "jview": {
+        "title": "jView",
+        "type": "application",
+        "types": [ "jpg", "png", "gif", "svg" ],
+        "command": "jview %1"
+    },
+
+    "jzip": {
+        "title": "jZIP",
+        "type": "application",
+        "types": [ "zip" ],
+        "command": "jzip %1"
+    },
+
+    "ace": {
+        "title": "Ace",
+        "type": "application",
+        "icon": "../js/vendor/ace/icon.png",
+        "url": "../../apps/ace.js",
+        "types": [ "html", "css", "js", "json", "txt" ],
+        "command": "ace %1"
+    },
+
+    "bio": {
+        "title": "Bio",
+        "type": "application",
+        "icon": "account_circle",
+        "url": "../../apps/bio.js"
+    }
+}

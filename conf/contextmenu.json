@@ -1,0 +1,41 @@
+{
+    "*": {
+        "Open": {
+            "icon": "file_open",
+            "disabled": false,
+            "command": "viewer %1"
+        }
+    },
+
+    "folder": {
+        "Open in new window": {
+            "icon": "open_in_new",
+            "disabled": false,
+            "command": "viewer %1"
+        }
+    },
+
+    "html": {
+
+    },
+
+    "css": {
+
+    },
+
+    "js": {
+
+    },
+
+    "txt": {
+
+    },
+
+    "jpg": {
+
+    },
+
+    "zip": {
+
+    }
+}

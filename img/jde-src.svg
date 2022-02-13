@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="512"
+   height="512"
+   viewBox="0 0 135.46666 135.46667"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20, custom)"
+   sodipodi:docname="jde-src.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     units="px"
+     width="512px"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:zoom="1.1224747"
+     inkscape:cx="257.02137"
+     inkscape:cy="260.13948"
+     inkscape:window-width="1920"
+     inkscape:window-height="1011"
+     inkscape:window-x="0"
+     inkscape:window-y="40"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1">
+    <sodipodi:guide
+       position="79.907139,111.1881"
+       orientation="1,0"
+       id="guide44498" />
+    <sodipodi:guide
+       position="4.2428569,77.480954"
+       orientation="1,0"
+       id="guide47973" />
+    <sodipodi:guide
+       position="25.692856,91.859526"
+       orientation="1,0"
+       id="guide47975" />
+    <sodipodi:guide
+       position="42.738895,3.3443926"
+       orientation="0,-1"
+       id="guide47977" />
+    <sodipodi:guide
+       position="89.099996,73.473811"
+       orientation="0,-1"
+       id="guide47979" />
+    <sodipodi:guide
+       position="79.907139,15.537428"
+       orientation="0,-1"
+       id="guide47981" />
+  </sodipodi:namedview>
+  <defs
+     id="defs2">
+    <rect
+       x="72.967118"
+       y="87.442618"
+       width="379.20574"
+       height="365.7563"
+       id="rect3597" />
+    <rect
+       x="72.967117"
+       y="87.442619"
+       width="379.20575"
+       height="365.75629"
+       id="rect3597-6" />
+    <rect
+       x="72.967117"
+       y="87.442619"
+       width="379.20575"
+       height="365.75629"
+       id="rect3597-6-4" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <text
+       xml:space="preserve"
+       transform="matrix(0.43184885,0,0,0.56051848,-23.447968,-58.418964)"
+       id="text3595"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:144px;line-height:1.25;font-family:Terminus;-inkscape-font-specification:'Terminus Bold';white-space:pre;shape-inside:url(#rect3597);fill:#666666;fill-opacity:1;stroke:none"><tspan
+         x="72.966797"
+         y="214.84961"
+         id="tspan60491">JD</tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.57160694,0,0,0.5046555,-12.262392,11.181965)"
+       id="text3595-6"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:144px;line-height:1.25;font-family:Terminus;-inkscape-font-specification:'Terminus Bold';white-space:pre;shape-inside:url(#rect3597-6);fill:#666666;fill-opacity:1;stroke:none"><tspan
+         x="72.966797"
+         y="214.84961"
+         id="tspan60493">E</tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.25476599,0,0,0.35804223,-16.954696,41.89765)"
+       id="text3595-6-9"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:144px;line-height:1.25;font-family:Terminus;-inkscape-font-specification:'Terminus Bold';white-space:pre;shape-inside:url(#rect3597-6-4);fill:#666666;fill-opacity:1;stroke:none"><tspan
+         x="72.966797"
+         y="214.84961"
+         id="tspan60495">S</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:9.85247px;line-height:1.25;font-family:sans-serif;fill:#666666;fill-opacity:1;stroke:none;stroke-width:0.246312"
+       x="91.32122"
+       y="54.159996"
+       id="text51595"
+       transform="scale(0.88118583,1.1348344)"><tspan
+         sodipodi:role="line"
+         id="tspan51593"
+         style="stroke-width:0.246312;fill:#666666"
+         x="91.32122"
+         y="54.159996">esktop</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.0741px;line-height:1.25;font-family:sans-serif;fill:#666666;fill-opacity:1;stroke:none;stroke-width:0.251851"
+       x="87.647659"
+       y="109.19094"
+       id="text51595-0"
+       transform="scale(0.9127124,1.0956354)"><tspan
+         sodipodi:role="line"
+         id="tspan51593-4"
+         style="stroke-width:0.251851;fill:#666666"
+         x="87.647659"
+         y="109.19094">nvironment</tspan></text>
+  </g>
+</svg>
