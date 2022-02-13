@@ -343,22 +343,22 @@ export default class Window {
 
         if (!this.movRes) {
             document.addEventListener('mousemove', (e) => {
-                if (!this.dragging)
+                if (!this.dragging || !this.windows[id])
                     return;
 
                 /*Move window*/
-                if (this.dragItem === this.windows[id].heading)
+                if (this.dragItem.matches('.title'))
                     this.#bindWindowMoveStart(e);
                 else if (this.dragItem.matches('span[class*="resize"]'))
                     this.#bindWindowResizeStart(e);
             });
 
             document.addEventListener('mouseup', (e) => {
-                if (!this.dragging)
+                if (!this.dragging || !this.windows[id])
                     return;
 
                 /*Move window end*/
-                if (this.dragItem === this.windows[id].heading)
+                if (this.dragItem.matches('.title'))
                     this.#bindWindowMoveEnd(e);
                 else if (this.dragItem.matches('span[class*="resize"]'))
                     this.#bindWindowResizeEnd(e);
@@ -404,10 +404,10 @@ export default class Window {
      * @param {HTMLElement} [target]
      */
     #bindHeadMouseDown(id, e, target) {
-        if (e.button || e.target.matches('button[class*="btn-"]'))
+        if (e.button || (target || e.target).matches('button[class*="btn-"]'))
             return;
 
-        this.#bindWindowMouseDown(id, e, target);
+        this.#bindWindowMouseDown(id, e, target || e.target);
 
         this.#callEvent('onMoveStart', id, e);
     }
