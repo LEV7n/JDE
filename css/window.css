@@ -7,8 +7,10 @@
     flex-direction: column;
     font: 1em/1.2em "Saira", sans-serif;
     position: absolute;
-    top: var(--top);
-    left: var(--left);
+    top: var(--top, 'auto');
+    right: var(--right, 'auto');
+    bottom: var(--bottom, 'auto');
+    left: var(--left, 'auto');
     transition: all .1s ease-in-out;
     min-height: 50%;
     max-height: 100%;
@@ -110,6 +112,10 @@
     transition: none;
 }
 
+.window.resize {
+    transition: none;
+}
+
 .window.move > .title {
     cursor: move;
 }
@@ -129,7 +135,7 @@
 
 .window-area[class*="x-"][class*="y-"] {
     opacity: 1;
-    z-index: 1;
+    z-index: 2;
 }
 
 .window-area[class*="x-"],

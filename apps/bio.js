@@ -110,7 +110,8 @@ Currently in the middle of Kotlin training to create Android apps.<br>\
 <br>\
 P.S.<br>\
 This project is a simulation of the desktop shell developed with JavaScript in my free time.<br>\
-In the folder "How it works" you can check  the structure of the project, and also download a prototype "JDE.zip".`
+In the folder "How it works" you can check  the structure of the project, and also download a prototype "JDE.zip".<br>\
+Project's repo on Github <a href="https://github.com/LEV7n/JDE" target="_blank">here</a>.`
             })
             .addSkills([
                 { Name: 'HTML 4.1/5', Since: '2010' },

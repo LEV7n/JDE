@@ -6,12 +6,12 @@
         "command": "jshell %1"
     },
 
-    "jterm": {
-        "title": "jTerminal",
+    "xterm": {
+        "title": "Terminal",
         "type": "application",
         "icon": "terminal",
-        "url": "../../apps/jterm.js",
-        "command": "jterm"
+        "url": "../../apps/xterm.js",
+        "command": "xterm"
     },
 
     "jcalc": {

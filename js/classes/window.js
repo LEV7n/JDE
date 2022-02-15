@@ -332,40 +332,56 @@ export default class Window {
                 this.windows[id].resizer[key].classList.add(key);
                 resizer.append(this.windows[id].resizer[key]);
                 this.windows[id].resizer[key].addEventListener('mousedown', (e) => {
-                    this.#bindWindowMouseDown(id, e);
+                    this.#windowMouseDownAction(id, e);
                 });
             });
             this.windows[id].window.append(resizer);
 
         this.windows[id].heading.addEventListener('mousedown', (e) => {
-            this.#bindHeadMouseDown(id, e, this.windows[id].heading);
+            this.#headMouseDownAction(id, e, this.windows[id].heading);
         });
 
-        if (!this.movRes) {
-            document.addEventListener('mousemove', (e) => {
-                if (!this.dragging || !this.windows[id])
-                    return;
+        /*Prevent multiple bind to document*/
+        if (this.movRes)
+            return;
 
-                /*Move window*/
-                if (this.dragItem.matches('.title'))
-                    this.#bindWindowMoveStart(e);
-                else if (this.dragItem.matches('span[class*="resize"]'))
-                    this.#bindWindowResizeStart(e);
-            });
+        document.addEventListener('mousemove', (e) => {
+            if (!this.dragging)
+                return;
 
-            document.addEventListener('mouseup', (e) => {
-                if (!this.dragging || !this.windows[id])
-                    return;
+            /*Move window start*/
+            if (this.dragItem.matches('.title'))
+                this.#windowMoveStartAction(e);
+            else if (this.dragItem.matches('span[class*="resize"]'))
+                this.#windowResizeStartAction(e);
+        });
 
-                /*Move window end*/
-                if (this.dragItem.matches('.title'))
-                    this.#bindWindowMoveEnd(e);
-                else if (this.dragItem.matches('span[class*="resize"]'))
-                    this.#bindWindowResizeEnd(e);
-            });
+        document.addEventListener('mouseup', (e) => {
+            if (!this.dragging)
+                return;
 
-            this.movRes = true;
-        }
+            /*Move window end*/
+            if (this.dragItem.matches('.title'))
+                this.#windowMoveEndAction(e);
+            else if (this.dragItem.matches('span[class*="resize"]'))
+                this.#windowResizeEndAction(e);
+        });
+    }
+
+    /**
+     * Move handler for heading
+     *
+     * @param {Number, String} id
+     * @param {MouseEvent} e
+     * @param {HTMLElement} [target]
+     */
+    #headMouseDownAction(id, e, target) {
+        if (e.button || (target || e.target).matches('button[class*="btn-"]'))
+            return;
+
+        this.#windowMouseDownAction(id, e, target || e.target);
+
+        this.#callEvent('onMoveStart', id, e);
     }
 
     /**
@@ -375,7 +391,7 @@ export default class Window {
      * @param {MouseEvent} e
      * @param {HTMLElement} [target]
      */
-    #bindWindowMouseDown(id, e, target) {
+    #windowMouseDownAction(id, e, target) {
         this.dragging = this.windows[id];
         this.dragItem = target || e.target;
         this.objInitLeft = this.dragging.window.offsetLeft;
@@ -387,7 +403,7 @@ export default class Window {
     /**
      * Mouseup handler for document
      */
-    #bindWindowMouseUp() {
+    #windowMouseUpAction() {
         delete this.dragging;
         delete this.dragItem;
         delete this.objInitLeft;
@@ -397,27 +413,11 @@ export default class Window {
     }
 
     /**
-     * Move handler for heading
-     *
-     * @param {Number, String} id
-     * @param {MouseEvent} e
-     * @param {HTMLElement} [target]
-     */
-    #bindHeadMouseDown(id, e, target) {
-        if (e.button || (target || e.target).matches('button[class*="btn-"]'))
-            return;
-
-        this.#bindWindowMouseDown(id, e, target || e.target);
-
-        this.#callEvent('onMoveStart', id, e);
-    }
-
-    /**
      * Move start handler for document
      *
      * @param {MouseEvent} e
      */
-    #bindWindowMoveStart(e) {
+    #windowMoveStartAction(e) {
         if (this.dragging.window.classList.contains('maximized'))
             this.#toggle(this.dragging.id);
 
@@ -448,13 +448,13 @@ export default class Window {
      *
      * @param {MouseEvent} e
      */
-    #bindWindowMoveEnd(e) {
+    #windowMoveEndAction(e) {
         this.dragging.window.classList.remove('move');
         this.#drawWindowAreas(e);
 
         this.#callEvent('onMoveEnd', this.dragging.id, e);
 
-        this.#bindWindowMouseUp();
+        this.#windowMouseUpAction();
     }
 
     /**
@@ -462,13 +462,52 @@ export default class Window {
      *
      * @param {MouseEvent} e
      */
-    #bindWindowResizeStart(e) {
+    #windowResizeStartAction(e) {
         const
             boundary = this.dragging.window.getBoundingClientRect(),
+            computed = window.getComputedStyle(this.dragging.window, null),
             x = this.objInitLeft + e.pageX - this.dragStartX,
             y = this.objInitTop + e.pageY - this.dragStartY;
 
-        console.log(e, boundary, x, y)
+        this.parent.style.cursor = window.getComputedStyle(this.dragItem, null)?.cursor;
+
+        this.parent.classList.add('no-select');
+        this.dragging.window.classList.add('resize');
+        this.dragging.window.style
+            .setProperty('--top', `${ computed?.top || 'auto' }`);
+        this.dragging.window.style
+            .setProperty('--left', `${ computed?.left || 'auto' }`);
+        this.dragging.window.style.inset = '';
+
+        switch (this.dragItem.classList[0]) {
+            case 'resize-t': {
+                this.dragging.window.style
+                    .setProperty('--top', `${ y }px`);
+                this.dragging.window.style
+                    .setProperty('--bottom', `${ this.parent.offsetHeight - boundary.height }px`);
+                this.dragging.window.style.height = '';
+                break;
+            }
+
+            case 'resize-r': {
+                console.log(boundary.right - x)
+                this.dragging.window.style
+                    .setProperty('--left', `${ boundary.left }px`);
+                this.dragging.window.style
+                    .setProperty('--right', `${ boundary.right - x }px`);
+                this.dragging.window.style.width = '';
+                break;
+            }
+
+            case 'resize-l': {
+                this.dragging.window.style
+                    .setProperty('--left', `${ x }px`);
+                this.dragging.window.style
+                    .setProperty('--right', `${ this.parent.offsetWidth - boundary.right }px`);
+                this.dragging.window.style.width = '';
+                break;
+            }
+        }
     }
 
     /**
@@ -476,8 +515,11 @@ export default class Window {
      *
      * @param {MouseEvent} e
      */
-    #bindWindowResizeEnd(e) {
-        this.#bindWindowMouseUp();
+    #windowResizeEndAction(e) {
+        this.parent.style.cursor = '';
+        this.parent.classList.remove('no-select');
+        this.dragging.window.classList.remove('resize');
+        this.#windowMouseUpAction();
     }
 
     /**
