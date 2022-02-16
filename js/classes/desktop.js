@@ -75,7 +75,7 @@ export default class Desktop {
                 this.#files = Object.assign({}, config[0] || {}, data?.files || {});
                 this.#paper = Object.assign({}, config[1]?.wallpapers || {}, data?.wallpapers || {});
                 this.#theme = Object.assign({}, config[1]?.themes || {}, data?.themes || {});
-                this.#views = Object.assign({}, config[1]?.views || {}, data?.views || {});
+                this.#views = Object.assign([], config[1]?.views || [], data?.views || []);
                 this.#items = Object.assign(
                 {},
                 this.resolveLocalPath(config[1]?.items)?.items || {},
@@ -197,7 +197,6 @@ export default class Desktop {
 
         /*Render desktop items*/
         this.desktop.classList.add('desktop');
-        console.log(this.getActiveSet(this.#views))
         this.desktop.style.setProperty('--size', this.getActiveSet(this.#views)?.size || '48px');
         this.desktop.innerHTML = '';
         this.desktop.append(this.renderItems());
