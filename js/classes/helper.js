@@ -28,8 +28,8 @@ class Helper {
         const
             style = document.createElement('style'),
             type = (f) => {
-                if (f.includes('http'))
-                    return `@import url("${ f }")`;
+                if (/http|@/.test(f))
+                    return `@import url("${ this.resolvePaths(f, /(?<path>[-a-zA-Z0-9()!@:%_\+.~#?&\/\/=]*)/g) }")`;
                 else if (f.includes('{'))
                     return f;
                 else
@@ -47,6 +47,30 @@ class Helper {
         style.append(node);
 
         parent.append(style);
+    }
+
+    /**
+     * Change relative path to absolute
+     *
+     * @param {String} string
+     * @param {RegExp} [regex]
+     * @return String
+     */
+    resolvePaths(string, regex = /import.*from.*['"](?<path>.*)['"];?/g) {
+        const
+            matches = {
+                '@': location.origin // Replace import @ chars to root
+            };
+
+        [...string.matchAll(regex)].forEach(({ groups }) => {
+            let replacement = groups?.path;
+
+            Object.keys(matches).map(m => replacement = replacement.replace(m, matches[m]));
+
+            string = string.replace(groups?.path, replacement);
+        });
+
+        return string;
     }
 
     /**

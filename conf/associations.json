@@ -2,6 +2,7 @@
     "jshell": {
         "title": "jShell",
         "type": "application",
+        "icon": "mdi-folder-multiple",
         "types": [ "folder" ],
         "command": "jshell %1"
     },
@@ -9,7 +10,7 @@
     "xterm": {
         "title": "Terminal",
         "type": "application",
-        "icon": "terminal",
+        "icon": "mdi-console",
         "url": "../../apps/xterm.js",
         "command": "xterm"
     },
@@ -17,7 +18,7 @@
     "jcalc": {
         "title": "jCalc",
         "type": "application",
-        "icon": "calculate",
+        "icon": "mdi-calculator",
         "url": "../../apps/jcalc.js",
         "command": "jcalc"
     },
@@ -25,6 +26,7 @@
     "jview": {
         "title": "jView",
         "type": "application",
+        "icon": "mdi-image",
         "types": [ "jpg", "png", "gif", "svg" ],
         "command": "jview %1"
     },
@@ -32,6 +34,7 @@
     "jzip": {
         "title": "jZIP",
         "type": "application",
+        "icon": "mdi-zip-box",
         "types": [ "zip" ],
         "command": "jzip %1"
     },
@@ -48,7 +51,7 @@
     "bio": {
         "title": "Bio",
         "type": "application",
-        "icon": "account_circle",
+        "icon": "mdi-account-circle",
         "url": "../../apps/bio.js"
     }
 }

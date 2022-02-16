@@ -1,64 +1,76 @@
 {
+    "device": {
+        "icon": "mdi-harddisk"
+    },
+
     "folder": {
-        "icon": "folder"
+        "icon": "mdi-folder"
+    },
+
+    "application": {
+        "icon": "mdi-application"
+    },
+
+    "*": {
+        "icon": "mdi-file"
     },
 
     "html": {
-        "icon": "html",
+        "icon": "mdi-language-html5",
         "mimeType": "text/html",
         "contentType": "text/plain"
     },
 
     "css": {
-        "icon": "css",
+        "icon": "mdi-language-css3",
         "mimeType": "text/css",
         "contentType": "text/plain"
     },
 
     "js": {
-        "icon": "code",
+        "icon": "mdi-language-javascript",
         "mimeType": "application/javascript",
         "contentType": "text/plain"
     },
 
     "json": {
-        "icon": "description",
+        "icon": "mdi-code-json",
         "mimeType": "application/json",
         "contentType": "text/plain"
     },
 
     "txt": {
-        "icon": "description",
+        "icon": "mdi-file-document",
         "mimeType": "text/plain",
         "contentType": "text/plain"
     },
 
     "jpg": {
-        "icon": "image",
+        "icon": "mdi-file-image",
         "mimeType": "image/jpeg",
         "contentType": "arraybuffer"
     },
 
     "png": {
-        "icon": "image",
+        "icon": "mdi-file-image",
         "mimeType": "image/png",
         "contentType": "arraybuffer"
     },
 
     "gif": {
-        "icon": "image",
+        "icon": "mdi-file-image",
         "mimeType": "image/gif",
         "contentType": "arraybuffer"
     },
 
     "svg": {
-        "icon": "image",
+        "icon": "mdi-file-image",
         "mimeType": "image/svg+xml",
         "contentType": "arraybuffer"
     },
 
     "zip": {
-        "icon": "folder_zip",
+        "icon": "mdi-folder-zip",
         "mimeType": "application/zip",
         "contentType": "arraybuffer"
     }

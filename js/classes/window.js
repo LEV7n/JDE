@@ -62,10 +62,9 @@ export default class Window {
             id = ++this.#winMaxID,
             window = document.createElement('div'),
             heading = document.createElement('div'),
-            icon = document.createElement('i'),
             name = document.createElement('span'),
             content = document.createElement('div'),
-            isPath = /\/.+\.[0-9-a-z]{3,5}$/.test(data?.icon);
+            icon = desktop.renderIcon(data);
 
         window.id = id.toString();
         window.classList.add('window');
@@ -82,9 +81,6 @@ export default class Window {
                         .setProperty(key, `${ data.css[key] }${ typeof data.css[key] === 'number' ? 'px' : '' }`);
                 });
         }
-
-        icon.classList.add('icon', !isPath ? 'material-icons-outlined' : 'static');
-        icon.innerHTML = !isPath ? (data?.icon || 'question_mark') : `<img src="${ data?.icon }" />`;
 
         heading.append(icon);
 
@@ -172,14 +168,22 @@ export default class Window {
         const
             { id, heading } = data,
             buttons = document.createElement('div');
-        buttons.classList.add('buttons-holder');
+            buttons.classList.add('buttons-holder');
 
         data.buttons.forEach((type) => {
             const
                 button = document.createElement('button');
-            button.classList.add(`btn-${ type }`);
-            button.classList.add('material-icons-outlined');
-            button.innerText = type === 'toggle' ? 'crop_din' : type;
+
+            desktop.applyClasses({
+                default: `btn-${ type }`,
+                classes: (() => {
+                    switch (type) {
+                        case 'minimize': return 'minimize';
+                        case 'toggle': return 'maximize';
+                        case 'close': return 'close';
+                    }
+                })()
+            }, button);
 
             button.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -298,8 +302,13 @@ export default class Window {
         if (!data.window.classList.contains('minimized')) {
             data.window.classList.toggle('maximized');
             data.window.classList.remove('minimized');
-            ([...data.controls.buttons].filter(f => f.matches('.btn-toggle'))[0] || {}).innerText =
-                data.window.classList.contains('maximized') ? 'filter_none' : 'crop_din';
+            ([...data.controls.buttons]
+                .filter(f => f.matches('.btn-toggle'))[0] || {})
+                    .classList
+                        .replace(
+                            data.window.classList.contains('maximized') ? 'maximize' : 'restore',
+                            data.window.classList.contains('maximized') ? 'restore' : 'maximize',
+                        );
             this.#callEvent('onMaximize', data.window.id, e);
         } else
             data.window.classList.remove('minimized');

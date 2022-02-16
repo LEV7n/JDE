@@ -8,7 +8,9 @@ import Window from './window.js';
  * @class Desktop
  */
 export default class Desktop {
+    #files = {};
     #paper = {};
+    #theme = {};
     #items = {};
     #types = {};
     #assoc = {};
@@ -20,24 +22,67 @@ export default class Desktop {
      * Initialize
      *
      * @param {Object} [data]
-     * @param {String} [data.items]
-     * @param {String} [data.types]
-     * @param {String} [data.assoc]
-     * @param {Array} [data.autorun]
+     *
+     * @param {Object} [data.files] - filesystem structure
+     *
+     * #Wallpapers start#
+     * @param {Object} [data.wallpapers]
+     * @param {Array} [data.wallpapers.images]
+     * @param {String} [data.wallpapers.images.url] - url to image
+     * @param {Boolean} [data.wallpapers.images.active] - is active
+     * @param {Object} [data.wallpapers.properties]
+     * #Wallpapers end#
+     *
+     * #Themes start#
+     * @param {Object} [data.themes]
+     * @param {Object} [data.themes.current] - *Dynamic, contains current theme
+     * @param {Array} [data.themes.fonts]
+     * @param {String} [data.themes.fonts.name] - font name
+     * @param {String} [data.themes.fonts.css] - font url
+     * @param {String} [data.themes.fonts.alt] - alternative font-family, sans-serif or so
+     * @param {String} [data.themes.fonts.size] - font-size/line-height
+     * @param {String, Number} [data.themes.fonts.weight] - font-weight
+     * @param {Boolean} [data.themes.fonts.active] - is active
+     * @param {Array} [data.themes.icons]
+     * @param {String} [data.themes.icons.name] - icon name
+     * @param {String} [data.themes.icons.css] - icon url
+     * @param {Boolean} [data.themes.icons.active] - is active
+     * @param {Array} [data.themes.cursors]
+     * @param {String} [data.themes.cursors.name] - cursor name
+     * @param {Boolean} [data.themes.cursors.active] - is active
+     * #Themes end#
+     *
+     * #Views start#
+     * @param {Array} [data.views]
+     * @param {String} [data.views.size] - icon size
+     * @param {Boolean} [data.views.active] - is active
+     * #Views end#
+     *
+     * @param {Object} [data.items] - Desktop items ~/home/$user/Desktop
+     * @param {Object} [data.types] - Filetypes
+     * @param {Object} [data.assoc] - File associations
+     * @param {Array} [data.autorun] - Autorun apps
      * @return Desktop
      */
     constructor(data = {}) {
         this.#loadConfiguration({
+            files: data?.items || '../../conf/filesystem.json',
             items: data?.items || '../../conf/desktop.json',
             types: data?.types || '../../conf/filetypes.json',
             assoc: data?.assoc || '../../conf/associations.json'
         })
             .then((config) => {
-                this.#paper = config[0]?.wallpapers;
-                this.#views = config[0]?.views;
-                this.#items = config[0]?.items;
-                this.#types = config[1];
-                this.#assoc = config[2];
+                this.#files = Object.assign({}, config[0] || {}, data?.files || {});
+                this.#paper = Object.assign({}, config[1]?.wallpapers || {}, data?.wallpapers || {});
+                this.#theme = Object.assign({}, config[1]?.themes || {}, data?.themes || {});
+                this.#views = Object.assign({}, config[1]?.views || {}, data?.views || {});
+                this.#items = Object.assign(
+                {},
+                this.resolveLocalPath(config[1]?.items)?.items || {},
+                data?.items || {}
+                );
+                this.#types = Object.assign({}, config[2] || {}, data?.types || {});
+                this.#assoc = Object.assign({}, config[3] || {}, data?.types || {});
 
                 this.renderDesktop();
 
@@ -71,6 +116,43 @@ export default class Desktop {
     }
 
     /**
+     * Get tree from path
+     * @example this.resolveLocalPath('/root/')
+     *
+     * @param {String} path
+     * @param {Object} [root]
+     * @return {Object}
+     */
+    resolveLocalPath(path, root = this.#files) {
+        path = path
+                .split('/')
+                .filter(f => f)
+                .map((p, i) => (i > 0 ? 'items.' : '') + p)
+                .join('.');
+
+        return new Function('fs', `return fs.${ path }`)(root);
+    }
+
+    /**
+     * Get current theme
+     *
+     * @return {Object|number|{cursor: *, icon: *, font: *}|*}
+     */
+    getCurrentTheme() {
+        return this.#theme.current;
+    }
+
+    /**
+     * Get active set from collection
+     *
+     * @param set
+     * @return {Object}
+     */
+    getActiveSet(set) {
+        return (Array.isArray(set) ? set : []).filter(f => f?.active)[0] || {};
+    }
+
+    /**
      * Render taskbar
      *
      * @return {HTMLDivElement}
@@ -95,14 +177,25 @@ export default class Desktop {
 
         /*Set wallpaper*/
         this.wrapper.classList.add('wrapper');
-        this.wrapper.style.backgroundImage = `url("${ this.#paper?.images.filter(f => f.active)[0].url }")`;
+        this.wrapper.style.backgroundImage = `url("${ this.getActiveSet(this.#paper?.images)?.url }")`;
 
+        /*Include theme css*/
+        this.#theme.fonts.forEach(font => Helper.importStyle(font?.css));
+        this.#theme.icons.forEach(icon => Helper.importStyle(icon?.css));
+        this.#theme.current = (() => ({
+            font: this.getActiveSet(this.#theme?.fonts),
+            icon: this.getActiveSet(this.#theme?.icons),
+            cursor: this.getActiveSet(this.#theme?.cursors),
+        }))();
+
+        /*Init desktop holder*/
         this.holder.classList.add('desktop-holder');
         this.holder.append(this.desktop);
 
         /*Render desktop items*/
         this.desktop.classList.add('desktop');
-        this.desktop.style.setProperty('--size', this.#views?.filter(f => f.active)[0].size || 48);
+        console.log(this.getActiveSet(this.#views))
+        this.desktop.style.setProperty('--size', this.getActiveSet(this.#views)?.size || '48px');
         this.desktop.innerHTML = '';
         this.desktop.append(this.renderItems());
 
@@ -133,6 +226,8 @@ export default class Desktop {
         /*Initialize window manager*/
         if (!this.jWM)
             this.jWM = new Window({ parent: this.holder });
+
+        console.log(this)
     }
 
     /**
@@ -148,7 +243,6 @@ export default class Desktop {
         Object.keys(items).forEach((fileName) => {
             const
                 item = document.createElement('li'),
-                icon = document.createElement('i'),
                 name = document.createElement('span'),
                 data = Object.assign(
                     { title: fileName },
@@ -156,16 +250,14 @@ export default class Desktop {
                     this.#types[items[fileName].type] || {},
                     items[fileName]
                 ),
-                isPath = /\/.+\.[0-9-a-z]{3,5}$/.test(data?.icon);
+                icon = this.renderIcon(data);
 
                 item.data = data;
                 item.classList.add('item', 'no-select');
 
-                icon.classList.add('icon', !isPath ? 'material-icons-outlined' : 'static');
-                icon.innerHTML = !isPath ? (data?.icon || 'question_mark') : `<img src="${ data?.icon }" />`;
-
                 name.classList.add('name');
                 name.innerText = fileName;
+
                 if (!fileName.includes(' '))
                     name.classList.add('word-wrap');
 
@@ -176,6 +268,46 @@ export default class Desktop {
         });
 
         return fragment;
+    }
+
+    /**
+     * Render icon url or font
+     *
+     * @param {Object} data
+     * @return {HTMLElement}
+     */
+    renderIcon(data) {
+        const
+            icon = document.createElement('i'),
+            isPath = /\/.+\.[0-9-a-z]{3,5}$/.test(data?.icon);
+
+        if (isPath) {
+            icon.innerHTML = `<img src="${data?.icon}" />`;
+        }
+
+        this.applyClasses({
+            default: 'icon',
+            prefix: this.#theme?.current?.icon?.prefix,
+            classes: !isPath ? data?.icon : 'static'
+        }, icon);
+
+        return icon;
+    }
+
+    /**
+     * Join classes for object
+     *
+     * @param {Object} data
+     * @param {HTMLElement} item
+     */
+    applyClasses(data, item) {
+        let
+            classes = [data?.default];
+            classes = classes.concat((data?.prefix || '').split(' '));
+            classes = classes.concat((data?.classes || '').split(' '));
+
+        classes
+            .forEach(cls => cls && item.classList.add(cls));
     }
 
     /**
@@ -259,26 +391,16 @@ export default class Desktop {
 
         ((() => {
             return new Promise((resolve, reject) => {
+                if (typeof data.items === 'string') {
+                    data = Object.assign({}, data, this.resolveLocalPath(data.items) || {});
+                    console.log(data)
+                }
+
                 switch (data.type) {
-                    case 'folder': {
-                        const
-                            list = document.createElement('ul');
-                            list.classList.add('folder-view');
-                            list.style.setProperty('--size', this.#views?.filter(f => f.active)[0].size || 48);
-                            list.append(this.renderItems(data.items));
-                            data.title += ' - Viewer';
-
-                        resolve(
-                            Object.assign({ content: list }, data)
-                        );
-
-                        break;
-                    }
-
                     case 'application': {
                         Helper.fetch({ url: `${ data.url }?t=${ new Date().getTime() }` })
                             .then((application) => {
-                                application = this.resolvePaths(application.toString());
+                                application = Helper.resolvePaths(application.toString());
 
                                 try {
                                     const
@@ -304,6 +426,21 @@ export default class Desktop {
 
                         break;
                     }
+
+                    default: {
+                        if (['folder', 'device'].includes(data?.type)) {
+                            const
+                                list = document.createElement('ul');
+                            list.classList.add('folder-view');
+                            list.style.setProperty('--size', this.getActiveSet(this.#views)?.size || '48px');
+                            list.append(this.renderItems(data.items));
+                            data.title += ' - Viewer';
+
+                            resolve(
+                                Object.assign({ content: list }, data)
+                            );
+                        }
+                    }
                 }
             });
         })())
@@ -326,30 +463,6 @@ export default class Desktop {
                 return Object.assign({ content: body.content, textContent: template.toString() }, data);
             })
             .catch((e) => console.error(e));
-    }
-
-    /**
-     * Change relative path to absolute
-     *
-     * @param {String} string
-     * @param {RegExp} [regex]
-     * @return String
-     */
-    resolvePaths(string, regex = /import.*from.*['"](?<path>.*)['"];?/g) {
-        const
-            matches = {
-                '@': location.origin // Replace import @ chars to root
-            };
-
-        [...string.matchAll(regex)].forEach(({ groups }) => {
-            let replacement = groups?.path;
-
-            Object.keys(matches).map(m => replacement = replacement.replace(m, matches[m]));
-
-            string = string.replace(groups?.path, replacement);
-        });
-
-        return string;
     }
 
     /**
@@ -434,8 +547,4 @@ export default class Desktop {
 }
 
 /*Import needed styles*/
-Helper.importStyle([
-    'https://fonts.googleapis.com/css2?family=Saira:wght@200&display=swap',
-    'https://fonts.googleapis.com/css2?family=Material+Icons+Outlined&v=1644038177257',
-    'css/desktop.css'
-]);
+Helper.importStyle([ 'css/desktop.css' ]);

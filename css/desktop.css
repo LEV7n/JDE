@@ -33,12 +33,16 @@ body {
 .content > .folder-view {
     display: grid;
     grid-template-columns: repeat(auto-fill, calc(var(--size) + 20px));
-    font-size: calc(var(--size));
+    font-size: var(--size);
     column-gap: 10px;
     row-gap: 15px;
     margin: 0;
     padding: 15px;
     list-style: none;
+}
+
+.content > .folder-view {
+    padding: 0;
 }
 
 .wrapper .desktop > .item,
@@ -62,6 +66,7 @@ body {
     cursor: default;
     flex: 1;
     font-size: inherit;
+    line-height: 100%;
 }
 
 .wrapper .desktop > .item .icon.static,

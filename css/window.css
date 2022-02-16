@@ -5,7 +5,7 @@
     color: #fff;
     display: flex;
     flex-direction: column;
-    font: 1em/1.2em "Saira", sans-serif;
+    font: 300 1em/1.2em "Saira", sans-serif;
     position: absolute;
     top: var(--top, 'auto');
     right: var(--right, 'auto');
@@ -34,7 +34,7 @@
     align-items: center;
     cursor: default;
     background-color: rgb(96 96 96);
-    padding: .5em .5em .5em 2.5em;
+    padding: .5em .5em .5em 2em;
     position: relative;
 }
 
@@ -77,8 +77,8 @@
 }
 
 .window > .title > .buttons-holder {
-    flex-basis: 170px;
-    text-align: right;
+    display: flex;
+    align-items: end;
 }
 
 .window > .title > .buttons-holder button {
@@ -90,6 +90,8 @@
     margin: 0 0 0 5px;
     padding: 4px;
     transition: all .25s ease-in-out;
+    height: 16px;
+    width: 16px;
 }
 
 .window > .title > .buttons-holder .btn-minimize:hover {
