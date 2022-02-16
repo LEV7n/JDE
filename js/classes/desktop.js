@@ -121,9 +121,12 @@ export default class Desktop {
      *
      * @param {String} path
      * @param {Object} [root]
-     * @return {Object}
+     * @return {Object|null}
      */
     resolveLocalPath(path, root = this.#files) {
+        if (typeof path !== 'string' || !path.length)
+            return null;
+
         path = path
                 .split('/')
                 .filter(f => f)
@@ -244,16 +247,24 @@ export default class Desktop {
             const
                 item = document.createElement('li'),
                 name = document.createElement('span'),
+                type = (this.resolveLocalPath(items[fileName]?.items) || items[fileName])?.type,
                 data = Object.assign(
                     { title: fileName },
                     this.#assoc[items[fileName]?.name] || {},
-                    this.#types[items[fileName].type] || {},
+                    this.#types[type] || {},
                     items[fileName]
                 ),
-                icon = this.renderIcon(data);
+                icon = this.renderIcon(
+                    Object.assign(this.#types['*'], data)
+                );
 
                 item.data = data;
-                item.classList.add('item', 'no-select');
+
+                desktop.applyClasses({
+                    default: 'item',
+                    prefix: 'no-select',
+                    classes: data.type
+                }, item);
 
                 name.classList.add('name');
                 name.innerText = fileName;
@@ -393,7 +404,6 @@ export default class Desktop {
             return new Promise((resolve, reject) => {
                 if (typeof data.items === 'string') {
                     data = Object.assign({}, data, this.resolveLocalPath(data.items) || {});
-                    console.log(data)
                 }
 
                 switch (data.type) {

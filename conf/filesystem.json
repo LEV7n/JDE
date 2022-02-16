@@ -10,17 +10,17 @@
                 "items": {
                     "ace.js": {
                         "type": "js",
+                        "url": "../../../apps/ace.js",
                         "created": "Fri, 04 Feb 2022 21:03:35 GMT",
                         "accessed": "Sat, 05 Feb 2022 13:55:15 GMT",
-                        "modified": "Sat, 05 Feb 2022 13:30:44 GMT",
-                        "url": "../../../apps/ace.js"
+                        "modified": "Sat, 05 Feb 2022 13:30:44 GMT"
                     },
                     "bio.js": {
                         "type": "js",
+                        "url": "../../../apps/bio.js",
                         "created": "Fri, 04 Feb 2022 21:03:35 GMT",
                         "accessed": "Sat, 05 Feb 2022 13:55:15 GMT",
-                        "modified": "Sat, 05 Feb 2022 13:30:44 GMT",
-                        "url": "../../../apps/bio.js"
+                        "modified": "Sat, 05 Feb 2022 13:30:44 GMT"
                     }
                 }
             },
@@ -32,38 +32,38 @@
                 "items": {
                     "associations.json": {
                         "type": "json",
+                        "url": "../../../conf/associations.json",
                         "created": "Fri, 04 Feb 2022 21:03:35 GMT",
                         "accessed": "Sat, 05 Feb 2022 13:55:15 GMT",
-                        "modified": "Sat, 05 Feb 2022 13:30:44 GMT",
-                        "url": "../../../conf/associations.json"
+                        "modified": "Sat, 05 Feb 2022 13:30:44 GMT"
                     },
                     "contextmenu.json": {
                         "type": "json",
+                        "url": "../../../conf/contextmenu.json",
                         "created": "Fri, 04 Feb 2022 21:03:35 GMT",
                         "accessed": "Sat, 05 Feb 2022 13:55:15 GMT",
-                        "modified": "Sat, 05 Feb 2022 13:30:44 GMT",
-                        "url": "../../../conf/contextmenu.json"
+                        "modified": "Sat, 05 Feb 2022 13:30:44 GMT"
                     },
                     "desktop.json": {
                         "type": "json",
+                        "url": "../../../conf/desktop.json",
                         "created": "Fri, 04 Feb 2022 21:03:35 GMT",
                         "accessed": "Sat, 05 Feb 2022 13:55:15 GMT",
-                        "modified": "Sat, 05 Feb 2022 13:30:44 GMT",
-                        "url": "../../../conf/desktop.json"
+                        "modified": "Sat, 05 Feb 2022 13:30:44 GMT"
                     },
                     "filesystem.json": {
                         "type": "json",
+                        "url": "../../../conf/filesystem.json",
                         "created": "Fri, 04 Feb 2022 21:03:35 GMT",
                         "accessed": "Sat, 05 Feb 2022 13:55:15 GMT",
-                        "modified": "Sat, 05 Feb 2022 13:30:44 GMT",
-                        "url": "../../../conf/filesystem.json"
+                        "modified": "Sat, 05 Feb 2022 13:30:44 GMT"
                     },
                     "filetypes.json": {
                         "type": "json",
+                        "url": "../../../conf/filetypes.json",
                         "created": "Fri, 04 Feb 2022 21:03:35 GMT",
                         "accessed": "Sat, 05 Feb 2022 13:55:15 GMT",
-                        "modified": "Sat, 05 Feb 2022 13:30:44 GMT",
-                        "url": "../../../conf/filetypes.json"
+                        "modified": "Sat, 05 Feb 2022 13:30:44 GMT"
                     }
                 }
             },
@@ -75,24 +75,24 @@
                 "items": {
                     "ace.css": {
                         "type": "css",
+                        "url": "../../../css/ace.css",
                         "created": "Fri, 04 Feb 2022 21:03:35 GMT",
                         "accessed": "Sat, 05 Feb 2022 13:55:15 GMT",
-                        "modified": "Sat, 05 Feb 2022 13:30:44 GMT",
-                        "url": "../../../css/ace.css"
+                        "modified": "Sat, 05 Feb 2022 13:30:44 GMT"
                     },
                     "desktop.css": {
                         "type": "css",
+                        "url": "../../../css/desktop.css",
                         "created": "Fri, 04 Feb 2022 21:03:35 GMT",
                         "accessed": "Sat, 05 Feb 2022 13:55:15 GMT",
-                        "modified": "Sat, 05 Feb 2022 13:30:44 GMT",
-                        "url": "../../../css/desktop.css"
+                        "modified": "Sat, 05 Feb 2022 13:30:44 GMT"
                     },
                     "window.css": {
                         "type": "css",
+                        "url": "../../../css/window.css",
                         "created": "Fri, 04 Feb 2022 21:03:35 GMT",
                         "accessed": "Sat, 05 Feb 2022 13:55:15 GMT",
-                        "modified": "Sat, 05 Feb 2022 13:30:44 GMT",
-                        "url": "../../../css/window.css"
+                        "modified": "Sat, 05 Feb 2022 13:30:44 GMT"
                     }
                 }
             },
@@ -104,59 +104,59 @@
                 "items": {
                     "favicon.png": {
                         "type": "png",
+                        "url": "../../../img/favicon.png",
                         "created": "Fri, 04 Feb 2022 21:03:35 GMT",
                         "accessed": "Sat, 05 Feb 2022 13:55:15 GMT",
-                        "modified": "Sat, 05 Feb 2022 13:30:44 GMT",
-                        "url": "../../../img/favicon.png"
+                        "modified": "Sat, 05 Feb 2022 13:30:44 GMT"
                     },
                     "favicon.svg": {
                         "type": "svg",
+                        "url": "../../../img/favicon.svg",
                         "created": "Fri, 04 Feb 2022 21:03:35 GMT",
                         "accessed": "Sat, 05 Feb 2022 13:55:15 GMT",
-                        "modified": "Sat, 05 Feb 2022 13:30:44 GMT",
-                        "url": "../../../img/favicon.svg"
+                        "modified": "Sat, 05 Feb 2022 13:30:44 GMT"
                     },
                     "photo1.jpg": {
                         "type": "jpg",
+                        "url": "../../../img/photo1.jpg",
                         "created": "Fri, 04 Feb 2022 21:03:35 GMT",
                         "accessed": "Sat, 05 Feb 2022 13:55:15 GMT",
-                        "modified": "Sat, 05 Feb 2022 13:30:44 GMT",
-                        "url": "../../../img/photo1.jpg"
+                        "modified": "Sat, 05 Feb 2022 13:30:44 GMT"
                     },
                     "photo2.jpg": {
                         "type": "jpg",
+                        "url": "../../../img/photo2.jpg",
                         "created": "Fri, 04 Feb 2022 21:03:35 GMT",
                         "accessed": "Sat, 05 Feb 2022 13:55:15 GMT",
-                        "modified": "Sat, 05 Feb 2022 13:30:44 GMT",
-                        "url": "../../../img/photo2.jpg"
+                        "modified": "Sat, 05 Feb 2022 13:30:44 GMT"
                     },
                     "photo3.jpg": {
                         "type": "jpg",
+                        "url": "../../../img/photo3.jpg",
                         "created": "Fri, 04 Feb 2022 21:03:35 GMT",
                         "accessed": "Sat, 05 Feb 2022 13:55:15 GMT",
-                        "modified": "Sat, 05 Feb 2022 13:30:44 GMT",
-                        "url": "../../../img/photo3.jpg"
+                        "modified": "Sat, 05 Feb 2022 13:30:44 GMT"
                     },
                     "jde.svg": {
                         "type": "svg",
+                        "url": "../../../img/jde.svg",
                         "created": "Fri, 04 Feb 2022 21:03:35 GMT",
                         "accessed": "Sat, 05 Feb 2022 13:55:15 GMT",
-                        "modified": "Sat, 05 Feb 2022 13:30:44 GMT",
-                        "url": "../../../img/jde.svg"
+                        "modified": "Sat, 05 Feb 2022 13:30:44 GMT"
                     },
                     "loader.gif": {
                         "type": "gif",
+                        "url": "../../../img/loader.gif",
                         "created": "Fri, 04 Feb 2022 21:03:35 GMT",
                         "accessed": "Sat, 05 Feb 2022 13:55:15 GMT",
-                        "modified": "Sat, 05 Feb 2022 13:30:44 GMT",
-                        "url": "../../../img/loader.gif"
+                        "modified": "Sat, 05 Feb 2022 13:30:44 GMT"
                     },
                     "wallpaper-clouds-sky-palm_trees.jpg": {
                         "type": "jpg",
+                        "url": "../../../img/wallpaper-clouds-sky-palm_trees.jpg",
                         "created": "Fri, 04 Feb 2022 21:03:35 GMT",
                         "accessed": "Sat, 05 Feb 2022 13:55:15 GMT",
-                        "modified": "Sat, 05 Feb 2022 13:30:44 GMT",
-                        "url": "../../../img/wallpaper-clouds-sky-palm_trees.jpg"
+                        "modified": "Sat, 05 Feb 2022 13:30:44 GMT"
                     }
                 }
             },
@@ -174,24 +174,24 @@
                         "items": {
                             "desktop.js": {
                                 "type": "js",
+                                "url": "../../../js/classes/desktop.js",
                                 "created": "Fri, 04 Feb 2022 21:03:35 GMT",
                                 "accessed": "Sat, 05 Feb 2022 13:55:15 GMT",
-                                "modified": "Sat, 05 Feb 2022 13:30:44 GMT",
-                                "url": "../../../js/classes/desktop.js"
+                                "modified": "Sat, 05 Feb 2022 13:30:44 GMT"
                             },
                             "helper.js": {
                                 "type": "js",
+                                "url": "../../../js/classes/helper.js",
                                 "created": "Fri, 04 Feb 2022 21:03:35 GMT",
                                 "accessed": "Sat, 05 Feb 2022 13:55:15 GMT",
-                                "modified": "Sat, 05 Feb 2022 13:30:44 GMT",
-                                "url": "../../../js/classes/helper.js"
+                                "modified": "Sat, 05 Feb 2022 13:30:44 GMT"
                             },
                             "window.js": {
                                 "type": "js",
+                                "url": "../../../js/classes/window.js",
                                 "created": "Fri, 04 Feb 2022 21:03:35 GMT",
                                 "accessed": "Sat, 05 Feb 2022 13:55:15 GMT",
-                                "modified": "Sat, 05 Feb 2022 13:30:44 GMT",
-                                "url": "../../../js/classes/window.js"
+                                "modified": "Sat, 05 Feb 2022 13:30:44 GMT"
                             }
                         }
                     },
@@ -209,94 +209,94 @@
                                 "items": {
                                     "ace.js": {
                                         "type": "js",
+                                        "url": "../../../js/vendor/ace/ace.js",
                                         "created": "Fri, 04 Feb 2022 21:03:35 GMT",
                                         "accessed": "Sat, 05 Feb 2022 13:55:15 GMT",
-                                        "modified": "Sat, 05 Feb 2022 13:30:44 GMT",
-                                        "url": "../../../js/vendor/ace/ace.js"
+                                        "modified": "Sat, 05 Feb 2022 13:30:44 GMT"
                                     },
                                     "icon.png": {
                                         "type": "png",
+                                        "url": "../../../js/vendor/ace/icon.png",
                                         "created": "Fri, 04 Feb 2022 21:03:35 GMT",
                                         "accessed": "Sat, 05 Feb 2022 13:55:15 GMT",
-                                        "modified": "Sat, 05 Feb 2022 13:30:44 GMT",
-                                        "url": "../../../js/vendor/ace/icon.png"
+                                        "modified": "Sat, 05 Feb 2022 13:30:44 GMT"
                                     },
                                     "mode-css.js": {
                                         "type": "js",
+                                        "url": "../../../js/vendor/ace/mode-css.js",
                                         "created": "Fri, 04 Feb 2022 21:03:35 GMT",
                                         "accessed": "Sat, 05 Feb 2022 13:55:15 GMT",
-                                        "modified": "Sat, 05 Feb 2022 13:30:44 GMT",
-                                        "url": "../../../js/vendor/ace/mode-css.js"
+                                        "modified": "Sat, 05 Feb 2022 13:30:44 GMT"
                                     },
                                     "mode-html.js": {
                                         "type": "js",
+                                        "url": "../../../js/vendor/ace/mode-html.js",
                                         "created": "Fri, 04 Feb 2022 21:03:35 GMT",
                                         "accessed": "Sat, 05 Feb 2022 13:55:15 GMT",
-                                        "modified": "Sat, 05 Feb 2022 13:30:44 GMT",
-                                        "url": "../../../js/vendor/ace/mode-html.js"
+                                        "modified": "Sat, 05 Feb 2022 13:30:44 GMT"
                                     },
                                     "mode-javascript.js": {
                                         "type": "js",
+                                        "url": "../../../js/vendor/ace/mode-javascript.js",
                                         "created": "Fri, 04 Feb 2022 21:03:35 GMT",
                                         "accessed": "Sat, 05 Feb 2022 13:55:15 GMT",
-                                        "modified": "Sat, 05 Feb 2022 13:30:44 GMT",
-                                        "url": "../../../js/vendor/ace/mode-javascript.js"
+                                        "modified": "Sat, 05 Feb 2022 13:30:44 GMT"
                                     },
                                     "mode-json.js": {
                                         "type": "js",
+                                        "url": "../../../js/vendor/ace/mode-json.js",
                                         "created": "Fri, 04 Feb 2022 21:03:35 GMT",
                                         "accessed": "Sat, 05 Feb 2022 13:55:15 GMT",
-                                        "modified": "Sat, 05 Feb 2022 13:30:44 GMT",
-                                        "url": "../../../js/vendor/ace/mode-json.js"
+                                        "modified": "Sat, 05 Feb 2022 13:30:44 GMT"
                                     },
                                     "mode-text.js": {
                                         "type": "js",
+                                        "url": "../../../js/vendor/ace/mode-text.js",
                                         "created": "Fri, 04 Feb 2022 21:03:35 GMT",
                                         "accessed": "Sat, 05 Feb 2022 13:55:15 GMT",
-                                        "modified": "Sat, 05 Feb 2022 13:30:44 GMT",
-                                        "url": "../../../js/vendor/ace/mode-text.js"
+                                        "modified": "Sat, 05 Feb 2022 13:30:44 GMT"
                                     },
                                     "theme-monokai.js": {
                                         "type": "js",
+                                        "url": "../../../js/vendor/ace/theme-monokai.js",
                                         "created": "Fri, 04 Feb 2022 21:03:35 GMT",
                                         "accessed": "Sat, 05 Feb 2022 13:55:15 GMT",
-                                        "modified": "Sat, 05 Feb 2022 13:30:44 GMT",
-                                        "url": "../../../js/vendor/ace/theme-monokai.js"
+                                        "modified": "Sat, 05 Feb 2022 13:30:44 GMT"
                                     },
                                     "worker-base.js": {
                                         "type": "js",
+                                        "url": "../../../js/vendor/ace/worker-base.js",
                                         "created": "Fri, 04 Feb 2022 21:03:35 GMT",
                                         "accessed": "Sat, 05 Feb 2022 13:55:15 GMT",
-                                        "modified": "Sat, 05 Feb 2022 13:30:44 GMT",
-                                        "url": "../../../js/vendor/ace/worker-base.js"
+                                        "modified": "Sat, 05 Feb 2022 13:30:44 GMT"
                                     },
                                     "worker-css.js": {
                                         "type": "js",
+                                        "url": "../../../js/vendor/ace/worker-css.js",
                                         "created": "Fri, 04 Feb 2022 21:03:35 GMT",
                                         "accessed": "Sat, 05 Feb 2022 13:55:15 GMT",
-                                        "modified": "Sat, 05 Feb 2022 13:30:44 GMT",
-                                        "url": "../../../js/vendor/ace/worker-css.js"
+                                        "modified": "Sat, 05 Feb 2022 13:30:44 GMT"
                                     },
                                     "worker-html.js": {
                                         "type": "js",
+                                        "url": "../../../js/vendor/ace/worker-html.js",
                                         "created": "Fri, 04 Feb 2022 21:03:35 GMT",
                                         "accessed": "Sat, 05 Feb 2022 13:55:15 GMT",
-                                        "modified": "Sat, 05 Feb 2022 13:30:44 GMT",
-                                        "url": "../../../js/vendor/ace/worker-html.js"
+                                        "modified": "Sat, 05 Feb 2022 13:30:44 GMT"
                                     },
                                     "worker-javascript.js": {
                                         "type": "js",
+                                        "url": "../../../js/vendor/ace/worker-javascript.js",
                                         "created": "Fri, 04 Feb 2022 21:03:35 GMT",
                                         "accessed": "Sat, 05 Feb 2022 13:55:15 GMT",
-                                        "modified": "Sat, 05 Feb 2022 13:30:44 GMT",
-                                        "url": "../../../js/vendor/ace/worker-javascript.js"
+                                        "modified": "Sat, 05 Feb 2022 13:30:44 GMT"
                                     },
                                     "worker-json.js": {
                                         "type": "js",
+                                        "url": "../../../js/vendor/ace/worker-json.js",
                                         "created": "Fri, 04 Feb 2022 21:03:35 GMT",
                                         "accessed": "Sat, 05 Feb 2022 13:55:15 GMT",
-                                        "modified": "Sat, 05 Feb 2022 13:30:44 GMT",
-                                        "url": "../../../js/vendor/ace/worker-json.js"
+                                        "modified": "Sat, 05 Feb 2022 13:30:44 GMT"
                                     }
                                 }
                             }
@@ -304,10 +304,10 @@
                     },
                     "kernel.js": {
                         "type": "js",
+                        "url": "../../../js/kernel.js",
                         "created": "Fri, 04 Feb 2022 21:03:35 GMT",
                         "accessed": "Sat, 05 Feb 2022 13:55:15 GMT",
-                        "modified": "Sat, 05 Feb 2022 13:30:44 GMT",
-                        "url": "../../../js/kernel.js"
+                        "modified": "Sat, 05 Feb 2022 13:30:44 GMT"
                     }
                 }
             },
@@ -323,6 +323,7 @@
                                 "items": {
                                     "How it works": {
                                         "type": "symlink",
+                                        "icon": "mdi-folder",
                                         "created": "Sat, 05 Feb 2022 13:30:44 GMT",
                                         "accessed": "Sat, 05 Feb 2022 13:30:44 GMT",
                                         "modified": "Sat, 05 Feb 2022 13:30:44 GMT",
@@ -348,10 +349,10 @@
             },
             "index.html": {
                 "type": "html",
+                "url": "../../../index.html",
                 "created": "Fri, 04 Feb 2022 21:03:35 GMT",
                 "accessed": "Sat, 05 Feb 2022 13:55:15 GMT",
-                "modified": "Sat, 05 Feb 2022 13:30:44 GMT",
-                "url": "../../../index.html"
+                "modified": "Sat, 05 Feb 2022 13:30:44 GMT"
             },
             "JDE.zip": {
                 "type": "zip",
