@@ -132,7 +132,7 @@
 }
 
 .window > .title > .buttons-holder .btn-close:before {
-    background-position: 100% 0;
+    background-position: 101% 0;
 }
 
 .window.move {
