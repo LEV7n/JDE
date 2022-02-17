@@ -56,21 +56,6 @@ body {
     position: relative;
 }
 
-.wrapper .desktop > .item.symlink .icon:after,
-.content > .folder-view > .item.symlink .icon:after {
-    color: #000;
-    font: normal normal normal 24px/1 "Material Design Icons";
-    font-size: calc(var(--size) / 2);
-    text-rendering: auto;
-    line-height: inherit;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    content: "\F0D1C";
-    bottom: 1.25em;
-    right: 1.25em;
-    position: absolute;
-}
-
 .wrapper .desktop > .item.selected,
 .content > .folder-view > .item.selected {
     background-color: rgb(0 161 255 / 25%);
@@ -83,6 +68,18 @@ body {
     flex: 1;
     font-size: inherit;
     line-height: 100%;
+    position: relative;
+}
+
+.wrapper .item.symlink > .icon:after {
+    background: url(../img/shortcut.svg) no-repeat 50% 50%;
+    background-size: contain;
+    content: "";
+    position: absolute;
+    bottom: 0.2em;
+    left: 0.08em;
+    height: 25%;
+    width: 25%;
 }
 
 .wrapper .desktop > .item .icon.static,

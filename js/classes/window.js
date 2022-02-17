@@ -175,14 +175,7 @@ export default class Window {
                 button = document.createElement('button');
 
             desktop.applyClasses({
-                default: `btn-${ type }`,
-                classes: (() => {
-                    switch (type) {
-                        case 'minimize': return 'minimize';
-                        case 'toggle': return 'maximize';
-                        case 'close': return 'close';
-                    }
-                })()
+                default: `btn-${ type }`
             }, button);
 
             button.addEventListener('click', (e) => {
@@ -302,13 +295,6 @@ export default class Window {
         if (!data.window.classList.contains('minimized')) {
             data.window.classList.toggle('maximized');
             data.window.classList.remove('minimized');
-            ([...data.controls.buttons]
-                .filter(f => f.matches('.btn-toggle'))[0] || {})
-                    .classList
-                        .replace(
-                            data.window.classList.contains('maximized') ? 'maximize' : 'restore',
-                            data.window.classList.contains('maximized') ? 'restore' : 'maximize',
-                        );
             this.#callEvent('onMaximize', data.window.id, e);
         } else
             data.window.classList.remove('minimized');

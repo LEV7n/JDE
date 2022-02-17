@@ -34,15 +34,18 @@
     align-items: center;
     cursor: default;
     background-color: rgb(96 96 96);
-    padding: .5em .5em .5em 2em;
+    padding: .5em .5em .5em 3em;
     position: relative;
 }
 
 .window > .title > .icon {
+    font-size: 24px;
+    text-align: center;
     position: absolute;
     top: 50%;
     left: 0.5em;
     transform: translateY(-50%);
+    width: 24px;
 }
 
 .window > .title > .icon.static img {
@@ -90,8 +93,6 @@
     margin: 0 0 0 5px;
     padding: 4px;
     transition: all .25s ease-in-out;
-    height: 16px;
-    width: 16px;
 }
 
 .window > .title > .buttons-holder .btn-minimize:hover {
@@ -107,6 +108,31 @@
 .window > .title > .buttons-holder .btn-close:hover {
     background-color: #bf3535;
     border-color: #bb3131;
+}
+
+.window > .title > .buttons-holder button:before {
+    background: url(../img/controls.svg) no-repeat 0 0;
+    background-size: cover;
+    display: block;
+    content: "";
+    height: 16px;
+    width: 16px;
+}
+
+.window > .title > .buttons-holder .btn-minimize:before {
+    background-position: 0 0;
+}
+
+.window > .title > .buttons-holder .btn-toggle:before {
+    background-position: 34% 0;
+}
+
+.window.maximized > .title > .buttons-holder .btn-toggle:before {
+    background-position: 66% 0;
+}
+
+.window > .title > .buttons-holder .btn-close:before {
+    background-position: 100% 0;
 }
 
 .window.move {
