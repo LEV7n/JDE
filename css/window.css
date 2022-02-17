@@ -115,8 +115,8 @@
     background-size: cover;
     display: block;
     content: "";
-    height: 16px;
-    width: 16px;
+    height: 12px;
+    width: 12px;
 }
 
 .window > .title > .buttons-holder .btn-minimize:before {
