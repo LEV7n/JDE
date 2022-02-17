@@ -71,6 +71,11 @@ body {
     position: relative;
 }
 
+.wrapper .item .icon,
+.wrapper .item .icon + .name {
+    flex: 1; /*Thanks to Vadym Mykhailov:D*/
+}
+
 .wrapper .item.symlink > .icon:after {
     background: url(../img/shortcut.svg) no-repeat 50% 50%;
     background-size: contain;
